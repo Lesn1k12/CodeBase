@@ -1,8 +1,14 @@
 import React from 'react'
+import AuthForm from '../forms/AuthForm'
 
 const Login = () => {
+
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
+
   return (
-    <div>Login</div>
+    <AuthForm onSubmit={onSubmit} formType={"login"}/>
   )
 }
 

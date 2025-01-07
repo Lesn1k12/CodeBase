@@ -23,10 +23,6 @@ const Dashboard = () => {
         return <DefaultDashboardComponent />
       case 2:
         return <RepoContent />
-      // case 3:
-      //   return <Income />
-      // case 4: 
-      //   return <Expenses />
       default: 
         return <DefaultDashboardComponent />
     }

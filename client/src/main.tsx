@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import './index.css'
 
-import Dashboard from './pages/dashboard';
+import Dashboard from './pages/dashboard/Dashboard';
 import ErrorPage from './error-page';
 
 

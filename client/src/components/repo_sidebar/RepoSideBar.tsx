@@ -1,50 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./repoSideBar.css";
 
 function RepoSideBar() {
+  const navigate = useNavigate();
+
   const repoItems = [
-    {
-      id: 1,
-      name: "repo1",
-      icon: "📁",
-      title: "repo1",
-      link: "/repo1",
-    },
-    {
-      id: 2,
-      name: "repo2",
-      icon: "📝",
-      title: "repo2",
-      link: "/repo2",
-    },
-    {
-      id: 3,
-      name: "repo3",
-      icon: "📅",
-      title: "repo3",
-      link: "/repo3",
-    },
-    {
-      id: 4,
-      name: "repo4",
-      icon: "⏱️",
-      title: "repo4",
-      link: "/repo4",
-    },
-    {
-      id: 5,
-      name: "repo5",
-      icon: "📊",
-      title: "repo5",
-      link: "/repo5",
-    },
-    {
-      id: 6,
-      name: "repo6",
-      icon: "⚙️",
-      title: "repo6",
-      link: "/repo6",
-    },
+    { id: 1, name: "repo1", icon: "📁", title: "repo1", link: "/repos/1" },
+    { id: 2, name: "repo2", icon: "📝", title: "repo2", link: "/repos/2" },
+    { id: 3, name: "repo3", icon: "📅", title: "repo3", link: "/repos/3" },
+    { id: 4, name: "repo4", icon: "⏱️", title: "repo4", link: "/repos/4" },
+    { id: 5, name: "repo5", icon: "📊", title: "repo5", link: "/repos/5" },
+    { id: 6, name: "repo6", icon: "⚙️", title: "repo6", link: "/repos/6" },
   ];
 
   return (
@@ -53,21 +20,20 @@ function RepoSideBar() {
         <i>📊</i> DASHBOARD
       </div>
       <ul>
-        {repoItems.map((item) => {
-          return (
-            <li
-              key={item.id}
-              onClick={() =>{}}
-              className=""
-            >
-              {item.icon}
-              <span>{item.title}</span>
-            </li>
-          );
-        })}
+        {repoItems.map((item) => (
+          <li
+            key={item.id}
+            onClick={() => navigate(`/repos/${item.id}`)} 
+            className="repo-item"
+          >
+            <span>{item.icon}</span>
+            <span>{item.title}</span>
+          </li>
+        ))}
       </ul>
       <div className="footer">Footer text or info</div>
     </>
   );
 }
+
 export default RepoSideBar;

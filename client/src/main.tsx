@@ -10,6 +10,7 @@ import './index.css'
 import Dashboard from './pages/dashboard/Dashboard';
 import ErrorPage from './error-page';
 import RepoPage from './pages/repo_page/RepoPage';
+import CodeEditor from './components/code_editor/CodeEditor';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/repos/:repoId",
     element: <RepoPage/>
+  },
+  {
+    path: "/edit/:repoId",
+    element: <CodeEditor/>
   },
 ]);
 

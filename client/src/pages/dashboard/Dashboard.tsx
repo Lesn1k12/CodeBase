@@ -35,7 +35,7 @@ const Dashboard = () => {
   return (
     <div className="container">
       <div className="left sidebar">
-        <RepoSideBar active={active} setActive={setActive}/>
+        <RepoSideBar/>
       </div>
       <div className="center">
         {displayData()}

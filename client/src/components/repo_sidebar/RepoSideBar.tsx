@@ -1,7 +1,7 @@
 import React from "react";
 import "./repoSideBar.css";
 
-function RepoSideBar({ active, setActive }) {
+function RepoSideBar() {
   const repoItems = [
     {
       id: 1,
@@ -57,8 +57,8 @@ function RepoSideBar({ active, setActive }) {
           return (
             <li
               key={item.id}
-              onClick={() => setActive(item.id)}
-              className={active === item.id ? "active" : ""}
+              onClick={() =>{}}
+              className=""
             >
               {item.icon}
               <span>{item.title}</span>

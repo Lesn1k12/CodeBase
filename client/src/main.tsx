@@ -9,6 +9,7 @@ import './index.css'
 
 import Dashboard from './pages/dashboard/Dashboard';
 import ErrorPage from './error-page';
+import RepoPage from './pages/repo_page/RepoPage';
 
 
 const router = createBrowserRouter([
@@ -18,8 +19,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/repos",
-    element: <div className=""></div>
+    path: "/repos/:repoId",
+    element: <RepoPage/>
   },
 ]);
 

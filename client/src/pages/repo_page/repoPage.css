@@ -1,96 +1,86 @@
 /* Загальний контейнер */
-.repo-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
+.repo-page {
+  display: flex;
+  height: 100vh;
   background-color: #f6f8fa;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-/* Заголовок репозиторію */
-.repo-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #24292e;
+/* Бокова панель */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #e1e4e8;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.repo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.repo-item {
+  padding: 10px;
   margin-bottom: 10px;
+  background-color: #eaecef;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Опис репозиторію */
-.repo-description {
-  font-size: 14px;
-  color: #586069;
+.repo-item:hover {
+  background-color: #d1d5da;
+}
+
+.create-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.create-button:hover {
+  background-color: #22863a;
+}
+
+/* Контентна частина */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-/* Папки */
-.directory {
-  margin-bottom: 10px;
+.actions button {
+  padding: 10px 20px;
+  background-color: #0366d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  font-weight: bold;
 }
 
-.directory:hover {
-  background-color: #eaecef;
-  border-radius: 5px;
+.actions button:hover {
+  background-color: #0356b6;
 }
 
-/* Іконка папки */
-.directory-icon {
-  margin-right: 8px;
-  color: #79b8ff;
-}
-
-/* Назва папки */
-.directory-title {
-  font-weight: 600;
-  color: #0366d6;
-}
-
-/* Список файлів */
-.file-list {
-  padding-left: 20px;
-  margin-top: 5px;
-}
-
-.file-item {
-  display: flex;
-  align-items: center;
-  padding: 5px 0;
-}
-
-.file-item:hover {
-  background-color: #f6f8fa;
-  border-radius: 5px;
-}
-
-/* Іконка файлу */
-.file-icon {
-  margin-right: 8px;
-  color: #6a737d;
-}
-
-/* Назва файлу */
-.file-title {
-  font-weight: 500;
-  color: #24292e;
-}
-
-/* Вміст файлу */
-.file-content {
-  background-color: #f6f8fa;
-  padding: 10px;
-  border-radius: 5px;
-  font-family: Consolas, 'Courier New', monospace;
-  font-size: 13px;
-  overflow-x: auto;
-  margin-top: 5px;
-  white-space: pre-wrap;
-  border: 1px solid #e1e4e8;
-}
-
+/* Модальне вікно */
 .modal {
   position: fixed;
   top: 0;
@@ -104,36 +94,194 @@
 }
 
 .modal-content {
-  background: white;
+  background-color: white;
   padding: 20px;
   border-radius: 5px;
+  width: 300px;
   text-align: center;
 }
 
 .modal-content input {
+  width: 90%;
+  padding: 10px;
   margin-bottom: 10px;
-  padding: 5px;
-  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .modal-content button {
+  padding: 8px 16px;
   margin: 5px;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.modal-content button:hover {
-  opacity: 0.8;
-}
-
 .modal-content button:first-of-type {
-  background-color: #4CAF50; /* Green */
+  background-color: #28a745;
   color: white;
 }
 
 .modal-content button:last-of-type {
-  background-color: #f44336; /* Red */
+  background-color: #d73a49;
   color: white;
+}
+
+/* Бокова панель */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #e1e4e8;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Список репозиторіїв */
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.repo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #eaecef;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.repo-item:hover {
+  background-color: #d1d5da;
+}
+
+/* Іконка */
+.repo-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Назва репозиторію */
+.repo-title {
+  font-weight: 500;
+  color: #24292e;
+}
+
+/* Кнопка створення */
+.create-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.create-button:hover {
+  background-color: #22863a;
+}
+
+/* Контейнер */
+.repo-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* Заголовок */
+.repo-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 10px;
+}
+
+/* Опис */
+.repo-description {
+  font-size: 14px;
+  color: #586069;
+  margin-bottom: 20px;
+}
+
+/* Директрорії */
+.directory-heading {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.directory {
+  margin-bottom: 10px;
+}
+
+.directory-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #0366d6;
+  font-weight: 500;
+}
+
+.directory-header svg {
+  margin-right: 8px;
+}
+
+/* Файли */
+.file-list {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.file-item {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.file-icon {
+  margin-right: 8px;
+  color: #6a737d;
+}
+
+.file-item span {
+  font-weight: 500;
+  color: #24292e;
+}
+
+/* Підсвітка коду */
+.code-block {
+  margin-top: 8px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 13px;
+  border: 1px solid #e1e4e8;
+}
+
+/* Блок коду */
+.code-block {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #e1e4e8;
 }

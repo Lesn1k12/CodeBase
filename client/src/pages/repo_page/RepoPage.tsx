@@ -1,44 +1,41 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './repoPage.css';
 import RepoSideBar from '../../components/repo_sidebar/RepoSideBar';
 import RepoContent from '../../components/repo_content/RepoContent';
-import { deleteRepo } from '../../api/repoApi'; // Ensure the correct import path
+import { deleteRepo } from '../../api/repoApi';
+import './RepoPage.css';
 
 function RepoPage() {
   const { repoId } = useParams();
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
   const [fileName, setFileName] = useState('');
-
-  const handleAddFileClick = () => {
-    setShowModal(true);
-  };
-
-  const handleContinueClick = () => {
-    setShowModal(false);
-    navigate(`/edit/${repoId}?fileName=${fileName}`);
-  };
+  const [showModal, setShowModal] = useState(false);
 
   const handleDeleteRepo = async () => {
     await deleteRepo(repoId ? parseInt(repoId) : 0);
     navigate('/dashboard');
   };
 
+  const handleAddFileClick = () => {
+    setShowModal(true);
+  };
+
+  const handleContinueClick = () => {
+    navigate(`/edit/${repoId}?fileName=${fileName}`);
+    setShowModal(false);
+  };
+
   return (
-    <div className="container">
-      <div className="left sidebar">
-        <RepoSideBar />
+    <div className="repo-page">
+      <RepoSideBar />
+      <div className="content">
+        <div className="actions">
+          <button onClick={handleDeleteRepo}>Delete</button>
+          <button>New Folder</button>
+          <button onClick={handleAddFileClick}>New File</button>
+        </div>
+        <RepoContent repoId={repoId ? parseInt(repoId) : 0} />
       </div>
-      <main className="center">
-        <div className="repo_options">
-          <button onClick={handleAddFileClick}>Add New File</button>
-          <button onClick={handleDeleteRepo}>Delete Repo</button>
-        </div>
-        <div className="repo_content">
-          <RepoContent repoId={repoId ? parseInt(repoId) : 0} />
-        </div>
-      </main>
 
       {showModal && (
         <div className="modal">

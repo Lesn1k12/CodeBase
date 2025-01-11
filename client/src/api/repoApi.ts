@@ -76,7 +76,7 @@ export const getRepo = async (id: number) => {
                             file_id: 1,
                             file_title: 'hello_world.py',
                             created_at: '2020-01-01',
-                            content: 'print("Hello, World!")',
+                            content: 'print("Hello, World!")\nfor i in range(10):\n    print(i)',
                         }
                     ]
                 },
@@ -88,7 +88,7 @@ export const getRepo = async (id: number) => {
                             file_id: 2,
                             file_title: 'index.html',
                             created_at: '2020-01-01',
-                            content: '<html><body><h1>Hello, World!</h1></body></html>',
+                            content: '<html>\n<body>\n<h1>Hello, World!</h1>\n</body>\n</html>',
                         }
                     ]
                 }

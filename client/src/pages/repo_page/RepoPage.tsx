@@ -3,8 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './repoPage.css';
 import RepoSideBar from '../../components/repo_sidebar/RepoSideBar';
 import RepoContent from '../../components/repo_content/RepoContent';
-
-import { deleteRepo } from '../../api/repoApi';
+import { deleteRepo } from '../../api/repoApi'; // Ensure the correct import path
 
 function RepoPage() {
   const { repoId } = useParams();
@@ -21,6 +20,11 @@ function RepoPage() {
     navigate(`/edit/${repoId}?fileName=${fileName}`);
   };
 
+  const handleDeleteRepo = async () => {
+    await deleteRepo(repoId ? parseInt(repoId) : 0);
+    navigate('/dashboard');
+  };
+
   return (
     <div className="container">
       <div className="left sidebar">
@@ -29,7 +33,7 @@ function RepoPage() {
       <main className="center">
         <div className="repo_options">
           <button onClick={handleAddFileClick}>Add New File</button>
-          <button onClick={() => deleteRepo(repoId ? parseInt(repoId) : 0)}>delete repo</button>
+          <button onClick={handleDeleteRepo}>Delete Repo</button>
         </div>
         <div className="repo_content">
           <RepoContent repoId={repoId ? parseInt(repoId) : 0} />

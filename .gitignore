@@ -33,3 +33,4 @@ auth/migrations/00000000000000_diesel_initial_setup/up.sql
 auth/migrations/2025-01-11-015539_create_users/down.sql
 auth/migrations/2025-01-11-015539_create_users/up.sql
 auth/src/.env
+client/package-lock.json

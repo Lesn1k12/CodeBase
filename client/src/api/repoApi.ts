@@ -82,8 +82,7 @@ export const getRepo = async (id: number) => {
                 },
                 {
                     directory_id: 2,
-                    title: 'Test directory 2',
-                    created_at: '2020-01-01',
+                    directory_title: 'Test directory 2', // Corrected key
                     files: [
                         {
                             file_id: 2,

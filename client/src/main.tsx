@@ -8,6 +8,7 @@ import {
 import './index.css'
 
 import Dashboard from './pages/dashboard/Dashboard';
+import AuthPage from './pages/auth_page/AuthPage';
 import ErrorPage from './error-page';
 import RepoPage from './pages/repo_page/RepoPage';
 import CodeEditor from './components/code_editor/CodeEditor';
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Dashboard />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/auth",
+    element: <AuthPage/>
   },
   {
     path: "/repos/:repoId",

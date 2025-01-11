@@ -10,6 +10,7 @@ use jsonwebtoken::{EncodingKey, DecodingKey};
 pub struct User {
     pub id: i32,
     pub username: String,
+    pub email: String,
     pub password: String,
     pub role: String,
 }
@@ -23,6 +24,7 @@ pub struct LoginUser {
 #[diesel(table_name = users)]
 pub struct NewUser {
     pub username: String,
+    pub email: String,
     pub password: String,
     pub role: String,
 }

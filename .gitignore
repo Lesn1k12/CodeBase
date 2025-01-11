@@ -26,3 +26,4 @@ dist-ssr
 */target
 package-lock.json
 */package-lock.json
+auth/Cargo.lock

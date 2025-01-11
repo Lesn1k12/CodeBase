@@ -4,6 +4,7 @@ import { getTokenFromLocalStorage } from './authApi';
 const API = "http://localhost:8081"; 
 
 export const createRepo = async (data: object) => {
+    console.log("createRepo called hujlo");
     try {
         const token = getTokenFromLocalStorage();
         const config = {
@@ -12,7 +13,7 @@ export const createRepo = async (data: object) => {
                 "Authorization": `Bearer ${token}`
             }
         };
-        const response = await axios.post(API, data, config);
+        const response = await axios.post(`${API}/createRepo`, data, config);
 
         if (response.data && response.data.access) {
             localStorage.setItem("token", response.data.access);

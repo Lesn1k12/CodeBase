@@ -1,0 +1,59 @@
+/* Загальний контейнер */
+.update_container {
+    padding: 20px;
+    background-color: #f6f8fa;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  
+  /* Верхня панель */
+  .top-bar h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #24292e;
+    margin-bottom: 10px;
+  }
+  
+  /* Кнопки */
+  .update_options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .save-button, .discard-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .save-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .save-button:hover {
+    background-color: #218838;
+  }
+  
+  .discard-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .discard-button:hover {
+    background-color: #e53935;
+  }
+  
+  /* Редактор */
+  .input_area {
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+  

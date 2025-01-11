@@ -4,7 +4,6 @@ import './repoPage.css'
 import RepoSideBar from '../../components/repo_sidebar/RepoSideBar'
 import RepoContent from '../../components/repo_content/RepoContent'
 
-
 function RepoPage() {
 
   const { repoId } = useParams();

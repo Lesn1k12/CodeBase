@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getRepos } from "../../api/repoApi";
 import "./repoSideBar.css";
 
+const icons = ['📁', '📂', '🗂️', '📑', '📄'];
+
 function RepoSideBar() {
+  const [repoItems, setRepoItems] = useState<any[]>([]);
   const navigate = useNavigate();
 
-  const repoItems = [
-    { id: 1, name: "repo1", icon: "📁", title: "repo1", link: "/repos/1" },
-    { id: 2, name: "repo2", icon: "📝", title: "repo2", link: "/repos/2" },
-    { id: 3, name: "repo3", icon: "📅", title: "repo3", link: "/repos/3" },
-    { id: 4, name: "repo4", icon: "⏱️", title: "repo4", link: "/repos/4" },
-    { id: 5, name: "repo5", icon: "📊", title: "repo5", link: "/repos/5" },
-    { id: 6, name: "repo6", icon: "⚙️", title: "repo6", link: "/repos/6" },
-  ];
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const repoData = await getRepos();
+        console.log("Fetched repo data:", repoData); 
+        const updatedRepoData = repoData.map((repo: any) => ({
+          ...repo,
+          icon: icons[Math.floor(Math.random() * icons.length)],
+          link: `/repos/${repo.id}`
+        }));
+        setRepoItems(updatedRepoData);
+      } catch (error) {
+        console.error("Error fetching repos:", error);
+      }
+    };
+
+    fetchRepos();
+  }, []);
 
   return (
     <>
@@ -20,16 +34,20 @@ function RepoSideBar() {
         <i>📊</i> DASHBOARD
       </div>
       <ul>
-        {repoItems.map((item) => (
-          <li
-            key={item.id}
-            onClick={() => navigate(`/repos/${item.id}`)} 
-            className="repo-item"
-          >
-            <span>{item.icon}</span>
-            <span>{item.title}</span>
-          </li>
-        ))}
+        {repoItems.length > 0 ? (
+          repoItems.map((item) => (
+            <li
+              key={item.id}
+              onClick={() => navigate(`/repos/${item.id}`)}
+              className="repo-item"
+            >
+              <span>{item.icon}</span>
+              <span>{item.title}</span>
+            </li>
+          ))
+        ) : (
+          <li>No repositories found</li>
+        )}
       </ul>
       <div className="footer">Footer text or info</div>
     </>

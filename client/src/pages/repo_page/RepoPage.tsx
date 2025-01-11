@@ -4,6 +4,8 @@ import './repoPage.css';
 import RepoSideBar from '../../components/repo_sidebar/RepoSideBar';
 import RepoContent from '../../components/repo_content/RepoContent';
 
+import { deleteRepo } from '../../api/repoApi';
+
 function RepoPage() {
   const { repoId } = useParams();
   const navigate = useNavigate();
@@ -27,6 +29,7 @@ function RepoPage() {
       <main className="center">
         <div className="repo_options">
           <button onClick={handleAddFileClick}>Add New File</button>
+          <button onClick={() => deleteRepo(repoId ? parseInt(repoId) : 0)}>delete repo</button>
         </div>
         <div className="repo_content">
           <RepoContent repoId={repoId ? parseInt(repoId) : 0} />

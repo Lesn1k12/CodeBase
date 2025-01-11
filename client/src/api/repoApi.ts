@@ -98,7 +98,7 @@ export const getRepo = async (id: number) => {
     }
 }
 
-export const updateRepo = async (id: string, data: object) => {
+export const updateRepo = async (id: number, data: object) => {
     try {
         const token = getTokenFromLocalStorage();
         const config = {
@@ -115,7 +115,7 @@ export const updateRepo = async (id: string, data: object) => {
     }
 }
 
-export const deleteRepo = async (id: string) => {
+export const deleteRepo = async (id: number) => {
     try {
         const token = getTokenFromLocalStorage();
         const config = {

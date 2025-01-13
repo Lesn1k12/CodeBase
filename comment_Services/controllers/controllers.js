@@ -19,15 +19,15 @@ exports.createComment = async (req, res) => {
 
   exports.getCommentsByProject = async (req, res) => {
     const { project } = req.params;
-    console.log("Project parameter received from URL:", project); // Логируем параметр
+    console.log("Project parameter received from URL:", project); 
 
     try {
         const comments = await Comment.find({ project });
-        console.log("Comments fetched from database:", comments); // Логируем результат
+        console.log("Comments fetched from database:", comments); 
 
         res.status(200).json({ comments });
     } catch (error) {
-        console.error("Error while fetching comments:", error); // Логируем ошибку
+        console.error("Error while fetching comments:", error);
         res.status(500).json({ message: 'Server error', error });
     }
 };

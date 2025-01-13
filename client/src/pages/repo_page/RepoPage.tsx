@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import RepoSideBar from '../../components/repo_sidebar/RepoSideBar';
 import RepoContent from '../../components/repo_content/RepoContent';
 import { deleteRepo } from '../../api/repoApi';
+import { FaTrashAlt, FaFolderPlus, FaFileAlt } from 'react-icons/fa';
 import './RepoPage.css';
 
 function RepoPage() {
@@ -16,9 +17,7 @@ function RepoPage() {
     navigate('/dashboard');
   };
 
-  const handleAddFileClick = () => {
-    setShowModal(true);
-  };
+  const handleAddFileClick = () => setShowModal(true);
 
   const handleContinueClick = () => {
     navigate(`/edit/${repoId}?fileName=${fileName}`);
@@ -30,9 +29,15 @@ function RepoPage() {
       <RepoSideBar />
       <div className="content">
         <div className="actions">
-          <button onClick={handleDeleteRepo}>Delete</button>
-          <button>New Folder</button>
-          <button onClick={handleAddFileClick}>New File</button>
+          <button onClick={handleDeleteRepo} className="delete-button">
+            <FaTrashAlt /> Delete
+          </button>
+          <button className="folder-button">
+            <FaFolderPlus /> New Folder
+          </button>
+          <button onClick={handleAddFileClick} className="file-button">
+            <FaFileAlt /> New File
+          </button>
         </div>
         <RepoContent repoId={repoId ? parseInt(repoId) : 0} />
       </div>

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { getRepos, createRepo } from '../../api/repoApi';
 import './RepoSideBar.css';
 
-const icons = ['📁', '📂', '🗂️', '📑', '📄'];
+// 📦 Уніфіковані іконки
+const icons = ['📜', '📋', '📅', '📊', '📈', '📉', '📇', '📆', '📋', '📌', '📍', '📎', '📏', '📐', '📒', '📓', '📔', '📕', '📖', '📗', '📘', '📙', '📚', '📛', '📜', '📝', '📞', '📟', '📠', '📡', '📢', '📣', '📤', '📥', '📦', '📧', '📨', '📩', '📪', '📫', '📬', '📭', '📮', '📯', '📰', '📱', '📲', '📳', '📴', '📵', '📶', '📷', '📸', '📹', '📺', '📻', '📼', '📽', '📿', '🔀', '🔁', '🔂', '🔃', '🔄', '🔅', '🔆', '🔇', '🔈', '🔉', '🔊', '🔋', '🔌', '🔍', '🔎', '🔏', '🔐', '🔑', '🔒', '🔓', '🔔', '🔕', '🔖', '🔗', '🔘', '🔙', '🔚', '🔛', '🔜', '🔝', '🔞', '🔟', '🔠', '🔡', '🔢', '🔣', '🔤', '🔦', '🔧', '🔨', '🔩', '🔪', '🔫', '🔬', '🔭', '🔮', '🔯', '🔰', '🔱', '🔲', '🔳', '🔴', '🔵', '🔶', '🔷', '🔸', '🔹', '🔺', '🔻', '🔼', '🔽', '🕉', '🕊', '🕋', '🕌', '🕍', '🕎', '🕐', '🕑', '🕒', '🕓', '🕔', '🕕', '🕖', '🕗', '🕘', '🕙', '🕚', '🕛', '🕜', '🕝', '🕞', '🕟', '🕠', '🕡', '🕢', '🕣', '🕤', '🕥', '🕦', '🕧', '🕯', '🕰', '🕳', '🕴', '🕵', '🕶', '🕷', '🕸', '🕹', '🕺', '🖇', '🖊', '🖋', '🖌', '🖍', '🖐', '🖕', '🖖', '🖤', '🖥', '🖨', '🖱', '🖲', '🖳', '🖴', '🖵', '🖶', '🖷', '🖸', '🖹', '🖺', '🖻', '🖼', '🖽']
 
 function RepoSideBar() {
   const [repoItems, setRepoItems] = useState<any[]>([]);
@@ -13,7 +14,7 @@ function RepoSideBar() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  // Завантаження репозиторіїв із сервера
+  // 📥 Завантаження репозиторіїв
   useEffect(() => {
     const fetchRepos = async () => {
       const repoData = await getRepos();
@@ -26,7 +27,7 @@ function RepoSideBar() {
     fetchRepos();
   }, []);
 
-  // Функція для створення нового репозиторію
+  // ➕ Створення репозиторію
   const handleCreateRepo = async () => {
     if (!title.trim()) {
       alert('Title is required!');
@@ -36,29 +37,21 @@ function RepoSideBar() {
     setIsSubmitting(true);
 
     try {
-      // Знаходимо найбільший ID
       const maxId = repoItems.length > 0 ? Math.max(...repoItems.map((repo) => repo.id)) : 0;
 
-      // Створюємо новий репозиторій локально
       const newRepo = {
-        id: maxId + 1,  // Новий ID = останній + 1
+        id: maxId + 1,
         title,
         description,
         icon: icons[Math.floor(Math.random() * icons.length)]
       };
 
-      // Додаємо новий репозиторій до списку
       setRepoItems((prevItems) => [newRepo, ...prevItems]);
-
-      // Відправляємо на сервер
       await createRepo({ title, description });
 
-      // Очищення форми і закриття модалки
       setTitle('');
       setDescription('');
       setShowForm(false);
-
-      console.log('Repo created successfully');
     } catch (error) {
       console.error('Error creating repo:', error);
       alert('Failed to create repo');
@@ -70,6 +63,8 @@ function RepoSideBar() {
   return (
     <div className="sidebar">
       <h2>Repositories</h2>
+
+      {/* 📂 Список репозиторіїв */}
       <ul className="repo-list">
         {repoItems.map((repo) => (
           <li key={repo.id} onClick={() => navigate(`/repos/${repo.id}`)} className="repo-item">
@@ -79,6 +74,7 @@ function RepoSideBar() {
         ))}
       </ul>
 
+      {/* ➕ Фіксована кнопка */}
       <button onClick={() => setShowForm(true)} className="create-button">Create Repo</button>
 
       {showForm && (
@@ -122,4 +118,3 @@ function RepoSideBar() {
 }
 
 export default RepoSideBar;
-

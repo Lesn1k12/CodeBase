@@ -15,34 +15,26 @@ const CONTENT_TYPES = {
 };
 
 const Dashboard = () => {
-  const [active, setActive] = useState(1)
+  const [active, setActive] = useState(1);
 
   const displayData = () => {
-    switch(active){
+    switch (active) {
       case 1:
-        return <DefaultDashboardComponent />
+        return <DefaultDashboardComponent />;
       case 2:
-        return <RepoContent />
-      default: 
-        return <DefaultDashboardComponent />
+        return <RepoContent repoId={1} />;
+      default:
+        return <DefaultDashboardComponent />;
     }
-  }
+  };
 
-  function getRepo(){
-
-  }
+  function getRepo() {}
 
   return (
     <div className="container">
-      <div className="left sidebar">
-        <RepoSideBar/>
-      </div>
-      <div className="center">
-        {displayData()}
-      </div>
-      <div className="right sidebar">
-        <Navbar active={active} setActive={setActive}/>
-      </div>
+      <RepoSideBar />
+      <div className="center">{displayData()}</div>
+      <Navbar active={active} setActive={setActive} />
     </div>
   );
 };

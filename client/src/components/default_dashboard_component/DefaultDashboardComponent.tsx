@@ -2,7 +2,7 @@ import React from 'react'
 
 function DefaultDashboardComponent() {
   return (
-    <div>DefaultDashboardComponent</div>
+    <div>choose your repo :)</div>
   )
 }
 

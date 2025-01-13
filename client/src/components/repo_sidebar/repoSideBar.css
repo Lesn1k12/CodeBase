@@ -1,0 +1,69 @@
+/* 📦 Сайдбар */
+.sidebar {
+  width: 200px; /* 🔽 Зменшена ширина */
+  background-color: #f9f9f9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px; /* 🔽 Зменшений відступ */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* 🗂️ Список репозиторіїв */
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding-right: 10px; /* Відстань між елементами і скролом */
+}
+
+/* Окремий елемент репозиторію */
+.repo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #eaecef;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 5px; /* Додатковий відступ від скролу */
+}
+
+.repo-item:hover {
+  background-color: #d1d5da;
+}
+
+/* Іконка репозиторію */
+.repo-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Назва репозиторію */
+.repo-title {
+  font-weight: 300;
+  color: #24292e;
+}
+
+/* ➕ Кнопка створення */
+.create-button {
+  padding: 8px;
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 4px; /* 🔽 Менший радіус */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px; /* 🔽 Менший шрифт */
+  width: 100%;
+  margin-top: 5px;
+}
+
+.create-button:hover {
+  background-color: #22863a;
+}

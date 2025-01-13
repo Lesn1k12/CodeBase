@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getTokenFromLocalStorage } from "./authApi";
 
-const API = "http://localhost:8081";
+const API = "http://localhost:8080";
 
 export const createRepo = async (data: object) => {
   try {
@@ -10,7 +10,7 @@ export const createRepo = async (data: object) => {
         "Content-type": "application/json",
       },
     };
-    const response = await axios.post(`${API}/createRepo`, data, config);
+    const response = await axios.post(`${API}/api/file`, data, config);
 
     if (response.data && response.data.access) {
       localStorage.setItem("token", response.data.access);
@@ -30,7 +30,7 @@ export const getRepos = async () => {
         "Content-type": "application/json",
       },
     };
-    const response = await axios.get(`${API}/repos`, config); 
+    const response = await axios.get(`${API}/api/repository`, config); 
 
     return response.data;
   } catch (error) {
@@ -58,7 +58,7 @@ export const getRepo = async (id: number) => {
         "Content-type": "application/json",
       },
     };
-    const response = await axios.get(`${API}/repos/${id}`, config);
+    const response = await axios.get(`${API}/api/repository/${id}`, config);
 
     return response.data;
   } catch (error) {
@@ -206,7 +206,7 @@ export const updateRepo = async (id: number, data: object) => {
         "Content-type": "application/json",
       },
     };
-    const response = await axios.put(`${API}/repos/${id}`, data, config);
+    const response = await axios.put(`${API}/api/file/${id}`, data, config);
 
     return response.data;
   } catch (error) {
@@ -221,7 +221,7 @@ export const deleteRepo = async (id: number) => {
         "Content-type": "application/json",
       },
     };
-    const response = await axios.delete(`${API}/repos/${id}`, config);
+    const response = await axios.delete(`${API}/api/file/${id}`, config);
 
     return response.data;
   } catch (error) {

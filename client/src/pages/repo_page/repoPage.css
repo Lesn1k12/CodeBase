@@ -1,0 +1,516 @@
+/* Загальний контейнер */
+.repo-page {
+  display: flex;
+  height: 100vh;
+  background-color: #f6f8fa;
+  font-family: Arial, sans-serif;
+}
+
+/* Бокова панель */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #e1e4e8;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.repo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.repo-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #eaecef;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.repo-item:hover {
+  background-color: #d1d5da;
+}
+
+.create-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.create-button:hover {
+  background-color: #22863a;
+}
+
+/* Контентна частина */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: hidden;
+}
+
+.actions {
+  display: flex;
+  margin: 0 20px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.actions button {
+  padding: 10px 20px;
+  background-color: #0366d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.actions button:hover {
+  background-color: #0356b6;
+}
+
+/* Модальне вікно */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:first-of-type {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-content button:last-of-type {
+  background-color: #d73a49;
+  color: white;
+}
+
+/* Бокова панель */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #e1e4e8;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Список репозиторіїв */
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.repo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #eaecef;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.repo-item:hover {
+  background-color: #d1d5da;
+}
+
+/* Іконка */
+.repo-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Назва репозиторію *
+
+/* Кнопка створення */
+.create-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.create-button:hover {
+  background-color: #22863a;
+}
+
+/* Контейнер */
+
+.repo-container::after {
+  content: "";
+  display: block;
+  height: 30px; /* Відступ знизу */
+}
+
+/* Заголовок */
+.repo-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #24292e;
+  font-weight: bold;
+}
+
+/* Опис */
+.repo-description {
+  font-size: 14px;
+  color: #586069;
+  margin-bottom: 20px;
+}
+
+/* Директрорії */
+.directory-heading {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.directory {
+  margin-bottom: 10px;
+}
+
+.directory-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #0366d6;
+  font-weight: 500;
+}
+
+.directory-header svg {
+  margin-right: 8px;
+}
+
+/* Файли */
+.file-list {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.file-item {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.file-icon {
+  margin-right: 8px;
+  color: #6a737d;
+}
+
+.file-item span {
+  font-weight: 500;
+}
+
+/* Підсвітка коду */
+.code-block {
+  margin-top: 8px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 13px;
+  border: 1px solid #e1e4e8;
+}
+
+/* Блок коду */
+.code-block {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #e1e4e8;
+}
+
+/* Сайдбар */
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Кнопка створення */
+.create-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.create-button:hover {
+  background-color: #45a049;
+}
+
+/* Модальне затемнення */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Затемнення фону */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Модальне вікно */
+.modal-content {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  text-align: center;
+}
+
+/* Поля вводу */
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Кнопка Submit */
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Кнопка Cancel */
+.cancel-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
+}
+
+/* Затемнення фону */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Модальне вікно */
+.modal-content {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  text-align: center;
+}
+
+/* Поля вводу */
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Кнопка Submit */
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.submit-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Кнопка Cancel */
+.cancel-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
+}
+
+
+/* 📦 Контейнер */
+.repo-container {
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  height: auto; /* Автоматична висота без обрізань */
+  min-height: calc(100vh - 130px); /* Займає всю висоту вікна */
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  overflow-y: hidden; /* Вертикальний скрол при потребі */
+  overflow-x: hidden; /* Прибираємо горизонтальний скрол */
+  box-sizing: border-box;
+}
+
+
+.repo-description {
+  font-size: 14px;
+  color: #586069;
+  margin-bottom: 20px;
+}
+
+
+.directory-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #eaecef;
+  margin-bottom: 5px;
+}
+
+.directory-header:hover {
+  background-color: #d1d5da;
+}
+
+.directory-header svg {
+  margin-right: 10px;
+  color: #0366d6;
+}
+
+/* 📄 Файли */
+.file-list {
+  padding-left: 20px;
+}
+
+.file-item {
+  margin-bottom: 15px;
+}
+
+.file-icon {
+  margin-right: 8px;
+  color: #6a737d;
+}
+
+/* 💻 Блок коду */
+.code-block {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  overflow-x: auto;
+  margin-top: 5px;
+  border: 1px solid #e1e4e8;
+}
+

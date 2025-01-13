@@ -1,0 +1,120 @@
+/* Загальний контейнер */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  /* Стилі для картки */
+  .auth-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+  }
+  
+  /* Форма */
+  .auth-form h2 {
+    margin-bottom: 24px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  /* Група інпутів */
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  }
+  
+  /* Кнопка */
+  .auth-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-button:hover {
+    background-color: #1e40af;
+  }
+  
+  /* Перемикач між логіном і реєстрацією */
+  .auth-toggle {
+    color: #2563eb;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .auth-toggle:hover {
+    text-decoration: underline;
+  }
+  
+  .error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+
+  .input-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .auth-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .auth-button:hover {
+    background-color: #1e40af;
+  }
+  

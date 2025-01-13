@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = "localhost:8080"
+const API = "http://localhost:8081/auth"
 
 export const getTokenFromLocalStorage = () => {
     return localStorage.getItem("token");
@@ -14,12 +14,12 @@ export const login = async (data: object) => {
             }
         };
 
-        const response = await axios.post(API, data, config);
+        const response = await axios.post(`${API}/login`, data, config);
 
         console.log("Full response object:", response);
 
-        if (response.data && response.data.access) {
-            localStorage.setItem("token", response.data.access);
+        if (response.data && response.data) {
+            localStorage.setItem("token", response.data);
             console.log("Token saved successfully");
         }
 
@@ -37,7 +37,7 @@ export const register = async (data: object) => {
             }
         };
 
-        const response = await axios.post(API, data, config);
+        const response = await axios.post(`${API}/register`, data, config);
 
         console.log("Full response object:", response);
 

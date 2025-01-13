@@ -83,6 +83,7 @@ async fn create_new_user(user: NewUser, conn: &mut PgConnection) -> Result<(), H
 
     let new_user = NewUser {
         username: user.username.clone(),
+        email: user.email.clone(),
         password: hashed_password,
         role: user.role.clone(),
     };
@@ -126,6 +127,7 @@ pub async fn login(login_user: web::Json<LoginUser>, pool: web::Data<DbPool>) ->
 }
 
 pub async fn register(user: web::Json<NewUser>, pool: web::Data<DbPool>) -> HttpResponse {
+    log::info!("Registering user:");
     let mut conn = match pool_response(pool).await {
         Ok(conn) => conn,
         Err(resp) => return resp,

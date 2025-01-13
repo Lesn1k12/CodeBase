@@ -4,13 +4,10 @@ import { getTokenFromLocalStorage } from "./authApi";
 const API = "http://localhost:8081";
 
 export const createRepo = async (data: object) => {
-  console.log("createRepo called hujlo");
   try {
-    const token = getTokenFromLocalStorage();
     const config = {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
     const response = await axios.post(`${API}/createRepo`, data, config);
@@ -28,11 +25,9 @@ export const createRepo = async (data: object) => {
 
 export const getRepos = async () => {
   try {
-    const token = getTokenFromLocalStorage();
     const config = {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
     const response = await axios.get(`${API}/repos`, config); // Ensure the correct endpoint is used
@@ -58,11 +53,9 @@ export const getRepos = async () => {
 
 export const getRepo = async (id: number) => {
   try {
-    const token = getTokenFromLocalStorage();
     const config = {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
     const response = await axios.get(`${API}/repos/${id}`, config);
@@ -208,11 +201,9 @@ export const getRepo = async (id: number) => {
 
 export const updateRepo = async (id: number, data: object) => {
   try {
-    const token = getTokenFromLocalStorage();
     const config = {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
     const response = await axios.put(`${API}/repos/${id}`, data, config);
@@ -225,11 +216,9 @@ export const updateRepo = async (id: number, data: object) => {
 
 export const deleteRepo = async (id: number) => {
   try {
-    const token = getTokenFromLocalStorage();
     const config = {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
     const response = await axios.delete(`${API}/repos/${id}`, config);
